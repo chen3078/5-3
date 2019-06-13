@@ -1,0 +1,22 @@
+template<class Typew,class Typep>
+bool Machine<Typew,Typep>::backtrack(int i)
+{
+  if(i>n){
+    bestw=cw;
+    for(int j=1;j<=n;j++)bestx[j]=x[j];
+    return true;
+    }
+   bool found=false;
+   if(bestw<=cc) found=ture;
+   for(int j=1;j<=m;j++){
+   x[i]=j;
+   cw+=w[i][j];
+   cp+=c[i][j];
+   if(cp<=cc&&cw<=bestw)
+   if(backtrack(i+1))
+    found=ture;
+    cw-=w[i][j];
+    cp-=c[i][j];
+   }
+   reture found;
+  }
